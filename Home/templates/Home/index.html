@@ -12,7 +12,7 @@
         <div class="scrollable">
             <ul class="fa-ul">
                 {% for key,value in tmi %}
-                <li><span class="fa-li"><i class="fas fa-share"></i></span>&nbsp <a href="{{ value }}" target="_blank" title="{{ key }}" data-toggle="popover" data-content="{{ value|popnews:"tmi" }}">{{ key }}</a> </li>
+                <li><span class="fa-li"><i class="fas fa-share"></i></span>&nbsp <a href="{{ value }}" target="_blank" title="{{ key }}">{{ key }}</a> </li>
                     {% endfor %}
             </ul>
         </div>
