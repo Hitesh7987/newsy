@@ -187,6 +187,14 @@ def worldindexp():
     for head in data:
         key[head.a["title"]] = head.a["href"]
     return key.items()
+def worldhindu():
+    page_soup = open_page("https://www.thehindu.com/news/international/")
+    container = page_soup.find_all("div", {"class": "main"})
+    content = container[3].find_all("div", {"class": "story-card-news"})
+    key = {}
+    for head in content:
+        key[head.h3.a.text] = head.h3.a["href"]
+    return key.items()
 
 #Entertainment scrapping functions
 def etmi():
@@ -493,11 +501,13 @@ def world(request):
     key3 = worldndtv()
     key4 = worldnews18()
     key5 = worldindexp()
+    key6 = worldhindu()
     return render(request,"Home/index.html", {"tmi" : key1,
                                               "ht" : key2,
                                               "ndtv" : key3,
                                               "news18" : key4,
-                                              "indexp" : key5})
+                                              "indexp" : key5,
+                                              "hindu" : key6})
 
 def entertainment(request):
     key1 = etmi()
